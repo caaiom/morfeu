@@ -32,7 +32,5 @@ dependencies {
 
     // webjars
     compile 'org.webjars:bootstrap:3.3.4'
-    compile 'org.webjars.bower:font-awesome:4.3.0'
     compile 'org.webjars:jquery:2.1.4'
-    compile 'org.webjars.bower:angular-ui-bootstrap-bower:0.13.1'
 }
