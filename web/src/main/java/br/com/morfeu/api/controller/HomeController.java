@@ -8,12 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 /**
  * Created by cmaia on 14/04/16
  */
-@Controller("/")
+@Controller
 public class HomeController {
 
     private static final String INDEX_VIEW = "home/index";
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView index(){
         return new ModelAndView(INDEX_VIEW);
     }
