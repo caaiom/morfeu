@@ -1,19 +1,19 @@
 package br.com.morfeu.api.converter.generate;
 
-import br.com.morfeu.api.model.generate.GenerateReceiveViewModel;
-import br.com.morfeu.api.model.generate.GenerateServiceRequest;
+import br.com.morfeu.api.model.generate.GenerateApiServiceRequest;
+import br.com.morfeu.api.model.generate.GenerateApiViewModel;
 
 /**
  * Created by cmaia on 14/04/16
  */
 public class GenerateServiceRequestConverter {
 
-    public GenerateServiceRequest convert(GenerateReceiveViewModel generateReceiveViewModel) {
-        GenerateServiceRequest generateServiceRequest = new GenerateServiceRequest();
+    public GenerateApiServiceRequest convert(GenerateApiViewModel generateApiViewModel) {
+        GenerateApiServiceRequest generateApiServiceRequest = new GenerateApiServiceRequest();
 
-        generateServiceRequest.setConnection(generateReceiveViewModel.getConnection());
-        generateServiceRequest.setLanguage(generateReceiveViewModel.getLanguage().toString().toLowerCase());
+        generateApiServiceRequest.setConnection(generateApiViewModel.getConnection());
+        generateApiServiceRequest.setLanguage(generateApiViewModel.getLanguage().toString().toLowerCase());
 
-        return generateServiceRequest;
+        return generateApiServiceRequest;
     }
 }
