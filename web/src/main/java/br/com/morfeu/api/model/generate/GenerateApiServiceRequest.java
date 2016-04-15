@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by cmaia on 14/04/16
  */
-public class GenerateServiceRequest implements Serializable {
+public class GenerateApiServiceRequest implements Serializable {
 
     private static final long serialVersionUID = 5744427260052016065L;
 
@@ -33,7 +33,7 @@ public class GenerateServiceRequest implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        GenerateServiceRequest that = (GenerateServiceRequest) o;
+        GenerateApiServiceRequest that = (GenerateApiServiceRequest) o;
 
         return connection != null ? connection.equals(that.connection) : that.connection == null && (language != null ? language.equals(that.language) : that.language == null);
 
@@ -48,7 +48,7 @@ public class GenerateServiceRequest implements Serializable {
 
     @Override
     public String toString() {
-        return "GenerateServiceRequest{" +
+        return "GenerateApiServiceRequest{" +
                 "connection='" + connection + '\'' +
                 ", language='" + language + '\'' +
                 '}';

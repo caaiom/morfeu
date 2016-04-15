@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * Created by cmaia on 14/04/16
  */
-public class GenerateReceiveViewModel implements Serializable {
+public class GenerateApiViewModel implements Serializable {
 
     private static final long serialVersionUID = 3835054156564409733L;
     private String connection;
@@ -34,7 +34,7 @@ public class GenerateReceiveViewModel implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        GenerateReceiveViewModel that = (GenerateReceiveViewModel) o;
+        GenerateApiViewModel that = (GenerateApiViewModel) o;
 
         return connection != null ? connection.equals(that.connection) : that.connection == null && language == that.language;
 
@@ -49,7 +49,7 @@ public class GenerateReceiveViewModel implements Serializable {
 
     @Override
     public String toString() {
-        return "GenerateReceiveViewModel{" +
+        return "GenerateApiViewModel{" +
                 "connection='" + connection + '\'' +
                 ", language=" + language +
                 '}';
