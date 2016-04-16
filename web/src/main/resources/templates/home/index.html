@@ -11,10 +11,10 @@
 
     <section class="container" id="information">
         <div class="row">
-            <form>
+            <form method="POST">
                 <div class="form-group">
                     <label for="languageSelect">Language</label>
-                    <select class="form-control" id="languageSelect">
+                    <select class="form-control" id="languageSelect" name="language">
                         <option>Java</option>
                         <option>Python</option>
                         <option>Ruby</option>
@@ -22,8 +22,16 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="dbSelect">Language</label>
+                    <select class="form-control" id="dbSelect" name="database">
+                        <option>MySQL</option>
+                        <option>PostgreSQL</option>
+                        <option>Oracle</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="dbConnection">DB Connection String</label>
-                    <textarea class="form-control" id="dbConnection" rows="3"></textarea>
+                    <textarea class="form-control" id="dbConnection" rows="3" name="connection"></textarea>
                 </div>
                 <button type="submit" class="btn btn-success btn-lg">Generate</button>
             </form>
