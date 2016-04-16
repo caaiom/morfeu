@@ -11,6 +11,7 @@ public class GenerateApiServiceRequest implements Serializable {
 
     private String connection;
     private String language;
+    private String database;
 
     public String getConnection() {
         return connection;
@@ -28,29 +29,49 @@ public class GenerateApiServiceRequest implements Serializable {
         this.language = language;
     }
 
+    public String getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(String database) {
+        this.database = database;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if(this == o) {
+            return true;
+        }
+        if(o == null || getClass() != o.getClass()) {
+            return false;
+        }
 
         GenerateApiServiceRequest that = (GenerateApiServiceRequest) o;
 
-        return connection != null ? connection.equals(that.connection) : that.connection == null && (language != null ? language.equals(that.language) : that.language == null);
-
+        if(connection != null ? !connection.equals(that.connection) : that.connection != null) {
+            return false;
+        }
+        if(language != null ? !language.equals(that.language) : that.language != null) {
+            return false;
+        }
+        return database != null ? database.equals(that.database) : that.database == null;
     }
 
     @Override
     public int hashCode() {
         int result = connection != null ? connection.hashCode() : 0;
         result = 31 * result + (language != null ? language.hashCode() : 0);
+        result = 31 * result + (database != null ? database.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return "GenerateApiServiceRequest{" +
-                "connection='" + connection + '\'' +
-                ", language='" + language + '\'' +
-                '}';
+        final StringBuilder sb = new StringBuilder("GenerateApiServiceRequest{");
+        sb.append("connection='").append(connection).append('\'');
+        sb.append(", language='").append(language).append('\'');
+        sb.append(", database='").append(database).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
