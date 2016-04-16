@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -18,7 +19,7 @@ public class GenerateController {
     private GenerateApiService generateApiService;
 
     @RequestMapping(value = "/generate")
-    public ResponseEntity generate(final GenerateApiViewModel request){
+    public ResponseEntity generate(@RequestBody final GenerateApiViewModel request){
         try {
             return generateApiService.generate(request);
         } catch (Exception e) {
