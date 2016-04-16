@@ -2,48 +2,54 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorator="_layout">
 
+<div layout:fragment="jsHead" th:remove="tag">
+    <script type="text/javascript" th:src="@{/webjars/angularjs/1.5.3/angular.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/generate.js}"></script>
+</div>
 
 <div layout:fragment="content" th:remove="tag">
-    <header class="container">
-        <h1>Turn DB schema into API</h1>
-        <hr />
-    </header>
-
-    <section class="container" id="information">
-        <div class="row">
-            <form method="POST">
-                <div class="form-group">
-                    <label for="languageSelect">Language</label>
-                    <select class="form-control" id="languageSelect" name="language">
-                        <option>Java</option>
-                        <option>Python</option>
-                        <option>Ruby</option>
-                        <option>Javascript (Node.js)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dbSelect">Language</label>
-                    <select class="form-control" id="dbSelect" name="database">
-                        <option>MySQL</option>
-                        <option>PostgreSQL</option>
-                        <option>Oracle</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dbConnection">DB Connection String</label>
-                    <textarea class="form-control" id="dbConnection" rows="3" name="connection"></textarea>
-                </div>
-                <button type="submit" class="btn btn-success btn-lg">Generate</button>
-            </form>
+    <div ng-controller="GenerateCtrl">
+        <header class="container">
+            <h1>Turn DB schema into API</h1>
             <hr />
-        </div>
-    </section>
+        </header>
 
-    <footer>
-        <div class="container">
-            Morfeu.
-        </div>
-    </footer>
+        <section class="container" id="information">
+            <div class="row">
+                <form ng-submit="submit()">
+                    <div class="form-group">
+                        <label for="languageSelect">Language</label>
+                        <select class="form-control" id="languageSelect" name="language">
+                            <option>Java</option>
+                            <option>Python</option>
+                            <option>Ruby</option>
+                            <option>Javascript (Node.js)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dbSelect">Language</label>
+                        <select class="form-control" id="dbSelect" name="database">
+                            <option>MySQL</option>
+                            <option>PostgreSQL</option>
+                            <option>Oracle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dbConnection">DB Connection String</label>
+                        <textarea class="form-control" id="dbConnection" rows="3" name="connection"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg">Generate</button>
+                </form>
+                <hr />
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                Morfeu.
+            </div>
+        </footer>
+    </div>
 </div>
 
 </html>
