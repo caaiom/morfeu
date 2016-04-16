@@ -19,24 +19,19 @@
                 <form ng-submit="submit()">
                     <div class="form-group">
                         <label for="languageSelect">Language</label>
-                        <select class="form-control" id="languageSelect" name="language">
-                            <option>Java</option>
-                            <option>Python</option>
-                            <option>Ruby</option>
-                            <option>Javascript (Node.js)</option>
+                        <select class="form-control" ng-model="data.selectedLanguage" id="languageSelect" name="language">
+                            <option ng-repeat="option in data.availableLanguages" value="{{option.id}}">{{option.name}}</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="dbSelect">Language</label>
-                        <select class="form-control" id="dbSelect" name="database">
-                            <option>MySQL</option>
-                            <option>PostgreSQL</option>
-                            <option>Oracle</option>
+                        <label for="dbSelect">Database</label>
+                        <select class="form-control" ng-model="data.selectedDatabase" id="dbSelect" name="database">
+                            <option ng-repeat="option in data.availableDatabases" value="{{option.id}}">{{option.name}}</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="dbConnection">DB Connection String</label>
-                        <textarea class="form-control" id="dbConnection" rows="3" name="connection"></textarea>
+                        <textarea class="form-control" id="dbConnection" ng-model="data.connection" rows="3" name="connection"></textarea>
                     </div>
                     <button type="submit" class="btn btn-success btn-lg">Generate</button>
                 </form>
