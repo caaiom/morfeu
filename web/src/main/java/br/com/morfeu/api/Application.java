@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan("br.com.morfeu.api.controller")
+@ComponentScan({"br.com.morfeu.api.controller", "br.com.morfeu.api.service"})
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

@@ -12,7 +12,8 @@ public class GenerateServiceRequestConverter {
         GenerateApiServiceRequest generateApiServiceRequest = new GenerateApiServiceRequest();
 
         generateApiServiceRequest.setConnection(generateApiViewModel.getConnection());
-        generateApiServiceRequest.setLanguage(generateApiViewModel.getLanguage().toString().toLowerCase());
+        generateApiServiceRequest.setLanguage(generateApiViewModel.getLanguage().name());
+        generateApiServiceRequest.setDatabase(generateApiViewModel.getDatabase().name());
 
         return generateApiServiceRequest;
     }
