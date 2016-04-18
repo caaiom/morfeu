@@ -5,16 +5,16 @@ app.controller('GenerateCtrl', function($scope, $http) {
     $scope.data = {
         selectedLanguage: null,
         availableLanguages: [
-            {id: "java", name: "Java"},
-            {id: "python", name: "Python"},
-            {id: "ruby", name: "Ruby"},
-            {id: "javascript", name: "Javascript (Node.js)"}
+            {value: "java", name: "Java"},
+            {value: "python", name: "Python"},
+            {value: "ruby", name: "Ruby"},
+            {value: "javascript", name: "Javascript (Node.js)"}
         ],
         selectedDatabase: null,
         availableDatabases: [
-            {id: "mysql", name: "MySQL"},
-            {id: "postgres", name: "PostgreSQL"},
-            {id: "oracle", name: "Oracle"}
+            {value: "mysql", name: "MySQL"},
+            {value: "postgres", name: "PostgreSQL"},
+            {value: "oracle", name: "Oracle"}
         ],
         connection: ""
     };
@@ -24,6 +24,9 @@ app.controller('GenerateCtrl', function($scope, $http) {
         database: "",
         connection: ""
     };
+
+    $scope.selectedDatabase = $scope.data.availableDatabases[0].value;
+    $scope.selectedLanguage = $scope.data.availableLanguages[0].value;
 
     $scope.submit = function() {
         $scope.servicePayload.language = $scope.data.selectedLanguage;

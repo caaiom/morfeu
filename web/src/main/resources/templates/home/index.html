@@ -10,30 +10,39 @@
 <div layout:fragment="content" th:remove="tag">
     <div ng-controller="GenerateCtrl">
         <header class="container">
-            <h1>Turn DB schema into API</h1>
-            <hr />
+            <div class="row">
+                <h1>Turn DB schema into API</h1>
+                <hr />
+            </div>
         </header>
 
         <section class="container" id="information">
             <div class="row">
-                <form ng-submit="submit()">
+                <div class="alert alert-danger" ng-show="generateForm.$invalid &amp;&amp; submitted">
+                    <ul>
+                        <li ng-show="generateForm.language.$invalid"><span class="error">Language is required</span></li>
+                        <li ng-show="generateForm.database.$invalid"><span class="error">Database is required</span></li>
+                        <li ng-show="generateForm.connection.$invalid"><span class="error">Database connection is required</span></li>
+                    </ul>
+                </div>
+                <form ng-submit="generateForm.$valid &amp;&amp; submit()" name="generateForm">
                     <div class="form-group">
-                        <label for="languageSelect">Language</label>
-                        <select class="form-control" ng-model="data.selectedLanguage" id="languageSelect" name="language">
-                            <option ng-repeat="option in data.availableLanguages" value="{{option.id}}">{{option.name}}</option>
+                        <label for="selectedLanguage">Language</label>
+                        <select class="form-control" ng-model="selectedLanguage" id="selectedLanguage" name="language" required="true"
+                            ng-options="option.value as option.name for option in data.availableLanguages">
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{'error': data.selectedDatabase.$invalid}">
                         <label for="dbSelect">Database</label>
-                        <select class="form-control" ng-model="data.selectedDatabase" id="dbSelect" name="database">
-                            <option ng-repeat="option in data.availableDatabases" value="{{option.id}}">{{option.name}}</option>
+                        <select class="form-control" ng-model="selectedDatabase" id="dbSelect" name="database" required="true"
+                                ng-options="option.value as option.name for option in data.availableDatabases">
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="dbConnection">DB Connection String</label>
-                        <textarea class="form-control" id="dbConnection" ng-model="data.connection" rows="3" name="connection"></textarea>
+                        <textarea class="form-control" id="dbConnection" ng-model="data.connection" rows="3" name="connection" required="true"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-success btn-lg">Generate</button>
+                    <button type="submit" class="btn btn-success btn-lg" ng-click="submitted=true">Generate</button>
                 </form>
                 <hr />
             </div>
